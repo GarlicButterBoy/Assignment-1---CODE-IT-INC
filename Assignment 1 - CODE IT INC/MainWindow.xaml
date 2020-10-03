@@ -1,0 +1,57 @@
+﻿<Window x:Class="BillingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="CODE IT INC." Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--Left Column-->
+        <StackPanel Grid.Column="0" Margin="50">
+            <!--Project Name Text Box -->
+            <Label Content="_Project Name:"  Target="{Binding ElementName=txtProjectName}" />
+            <TextBox Name="txtProjectName" />
+
+            <!--Budget Text Box-->
+            <Label Content="_Budget:" Target="{Binding ElementName=txtBudget}" />
+            <TextBox Name="txtBudget" Text="0.00"/>
+
+            <!--Spent Text Box-->
+            <Label Content="_Spent:" Target="{Binding ElementName=txtSpent}" />
+            <TextBox Name="txtSpent" Text="0.00" />
+
+            <!--Hours Remaining Text Box-->
+            <Label Content="_Est Hours Remaining:" Target="{Binding ElementName=txtHoursLeft}" />
+            <TextBox Name="txtHoursLeft" Text="0" />
+
+            <!--Status List Box-->
+            <Label Content="_Status:" Target="{Binding ElementName=cbStatusList}" />
+            <ComboBox Name="cbStatusList">
+                <ComboBoxItem Name="cb1">Requirements</ComboBoxItem>
+                <ComboBoxItem Name="cb2">Design</ComboBoxItem>
+                <ComboBoxItem Name="cb3">Implementation</ComboBoxItem>
+                <ComboBoxItem Name="cb4">Testing</ComboBoxItem>
+                <ComboBoxItem Name="cb5">Deployment</ComboBoxItem>
+                <ComboBoxItem Name="cb6">Completed</ComboBoxItem>
+            </ComboBox>
+
+            <!--Create Project Button-->
+            <Label Content="" Target="{Binding ElementName=btnCreateProject}" />
+            <Button Name="btnCreateProject" Content="Create Project" Click="btnCreateProject_Click" />
+        </StackPanel>
+        <!--End of Left Column-->
+
+        <!--Right Column-->
+        <StackPanel Grid.Column="1" Margin="50">
+           <!--List Box -->
+            <Label Content="_Current Projects:" Target="{Binding ElementName=lbProjectList}" />
+            <ListBox Name="lbProjectList" MouseDoubleClick="listBoxClick"/>
+        </StackPanel>
+        <!--End of Right Column-->
+    </Grid>
+</Window>
