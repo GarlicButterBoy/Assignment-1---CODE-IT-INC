@@ -25,7 +25,7 @@ namespace BillingApp
         //Global Scope Object
         Project tempProject = new Project();
         //I should probably create an array of project classes to keep track of the various data, then use for loops when clicking on the listbox?
-        //something like that
+        //something like that. I'm close!
 
         public MainWindow()
         {
