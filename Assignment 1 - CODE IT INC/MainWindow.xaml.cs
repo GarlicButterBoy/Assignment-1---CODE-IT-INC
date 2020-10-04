@@ -1,5 +1,6 @@
 ﻿using Assignment_1___CODE_IT_INC;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,8 @@ namespace BillingApp
     {
 
         //Global Scope Object
-        Project tempProject = new Project();
+        //dynamic temp = new ArrayList();
+      //  Project[] tempProject = new Project[] { };
         //I should probably create an array of project classes to keep track of the various data, then use for loops when clicking on the listbox?
         //something like that. I'm close!
 
@@ -34,26 +36,32 @@ namespace BillingApp
 
         private void btnCreateProject_Click(object sender, RoutedEventArgs e)
         {
+           // int count = 0;
             Project project = new Project();
             project.ProjectName = txtProjectName.Text;
             project.ProjectBudget = double.Parse(txtBudget.Text);
             project.ProjectAmountSpent = double.Parse(txtSpent.Text);
             project.ProjectHoursRemaining = int.Parse(txtHoursLeft.Text);
             project.ProjectStatus = cbStatusList.Text;
-            lbProjectList.Items.Add(project.ProjectName);
-            tempProject = project;
+            lbProjectList.Items.Add(project);
+           // tempProject[count] = project;
+           // count++;
+           //lbProjectList.Add = project;
         }
+
+
 
         private void listBoxClick(object sender, EventArgs e)
         {
+            Project project = (Project)lbProjectList.SelectedItem;
+
             ProjectInfo newWindow = new ProjectInfo();
             newWindow.Show();
-
-            newWindow.txtProjectNameDisplay.Text = tempProject.ProjectName;
-            newWindow.txtBudgetDisplay.Text = Convert.ToString(tempProject.ProjectBudget);
-            newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(tempProject.ProjectHoursRemaining);
-            newWindow.txtSpentDisplay.Text = Convert.ToString(tempProject.ProjectAmountSpent);
-            newWindow.cbStatusDisplay.Text = tempProject.ProjectStatus;
+            newWindow.txtProjectNameDisplay.Text = project.ProjectName;
+            newWindow.txtBudgetDisplay.Text = Convert.ToString(project.ProjectBudget);
+            newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(project.ProjectHoursRemaining);
+            newWindow.txtSpentDisplay.Text = Convert.ToString(project.ProjectAmountSpent);
+            newWindow.cbStatusDisplay.Text = project.ProjectStatus;
         }
     }
 }

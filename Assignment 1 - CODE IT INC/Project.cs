@@ -58,5 +58,9 @@ namespace Assignment_1___CODE_IT_INC
             set { this.projectStatus = value; }
         }
 
+        public override string ToString()
+        {
+            return projectName;
+        }
     }
 }
