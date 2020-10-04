@@ -48,8 +48,8 @@
         </StackPanel>
 
         <WrapPanel Grid.Row="5">
-            <Button Name="btnAlter" Content="Alter" Click="btnAlter_Click" />
-            <Button Name="btnClose" Content="Close" Click="btnClose_Click" />
+          <!--  <Button Name="btnAlter" Content="Alter" Click="btnAlter_Click" /> -->
+            <Button Name="btnClose" Content="Close" Click="btnClose_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

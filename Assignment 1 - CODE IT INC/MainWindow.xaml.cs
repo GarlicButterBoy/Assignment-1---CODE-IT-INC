@@ -23,12 +23,6 @@ namespace BillingApp
     public partial class MainWindow : Window
     {
 
-        //Global Scope Object
-        //dynamic temp = new ArrayList();
-      //  Project[] tempProject = new Project[] { };
-        //I should probably create an array of project classes to keep track of the various data, then use for loops when clicking on the listbox?
-        //something like that. I'm close!
-
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +30,7 @@ namespace BillingApp
 
         private void btnCreateProject_Click(object sender, RoutedEventArgs e)
         {
-           // int count = 0;
+           //Creates the project, assigns the values, and stores it in the listbox
             Project project = new Project();
             project.ProjectName = txtProjectName.Text;
             project.ProjectBudget = double.Parse(txtBudget.Text);
@@ -44,19 +38,22 @@ namespace BillingApp
             project.ProjectHoursRemaining = int.Parse(txtHoursLeft.Text);
             project.ProjectStatus = cbStatusList.Text;
             lbProjectList.Items.Add(project);
-           // tempProject[count] = project;
-           // count++;
-           //lbProjectList.Add = project;
+
         }
 
 
 
         private void listBoxClick(object sender, EventArgs e)
         {
+
+            //Gets the selected item from the listbox
             Project project = (Project)lbProjectList.SelectedItem;
 
+            //creates the new window
             ProjectInfo newWindow = new ProjectInfo();
             newWindow.Show();
+
+            //displays the information stored in the listbox index selected
             newWindow.txtProjectNameDisplay.Text = project.ProjectName;
             newWindow.txtBudgetDisplay.Text = Convert.ToString(project.ProjectBudget);
             newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(project.ProjectHoursRemaining);

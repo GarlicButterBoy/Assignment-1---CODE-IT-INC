@@ -32,7 +32,7 @@ namespace BillingApp
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

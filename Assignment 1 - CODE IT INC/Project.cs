@@ -58,6 +58,7 @@ namespace Assignment_1___CODE_IT_INC
             set { this.projectStatus = value; }
         }
 
+        //Override ToString so the listbox gets the name of the object automatically
         public override string ToString()
         {
             return projectName;
