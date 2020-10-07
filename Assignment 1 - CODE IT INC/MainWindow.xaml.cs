@@ -39,21 +39,42 @@ namespace BillingApp
 
         private void btnCreateProject_Click(object sender, RoutedEventArgs e)
         {
-            //Creates the project, assigns the values, and stores it in the listbox
-            projects.Add(new Project() { ProjectName = txtProjectName.Text, ProjectBudget = double.Parse(txtBudget.Text),
-            ProjectAmountSpent = double.Parse(txtSpent.Text), ProjectHoursRemaining = int.Parse(txtHoursLeft.Text), ProjectStatus = cbStatusList.Text }) ;
 
-            /* Project project = new Project();
-            project.ProjectName = txtProjectName.Text;
-            project.ProjectBudget = double.Parse(txtBudget.Text);
-            project.ProjectAmountSpent = double.Parse(txtSpent.Text);
-            project.ProjectHoursRemaining = int.Parse(txtHoursLeft.Text);
-            project.ProjectStatus = cbStatusList.Text;
-            lbProjectList.Items.Add(project);
-           */
+            try
+            {
 
-            //Clears the text
-            ClearText();
+
+                //Creates the project, assigns the values, and stores it in the listbox
+                projects.Add(new Project()
+                {
+                    ProjectName = txtProjectName.Text,
+                    ProjectBudget = double.Parse(txtBudget.Text),
+                    ProjectAmountSpent = double.Parse(txtSpent.Text),
+                    ProjectHoursRemaining = int.Parse(txtHoursLeft.Text),
+                    ProjectStatus = cbStatusList.Text
+                });
+
+                /* Project project = new Project();
+                project.ProjectName = txtProjectName.Text;
+                project.ProjectBudget = double.Parse(txtBudget.Text);
+                project.ProjectAmountSpent = double.Parse(txtSpent.Text);
+                project.ProjectHoursRemaining = int.Parse(txtHoursLeft.Text);
+                project.ProjectStatus = cbStatusList.Text;
+                lbProjectList.Items.Add(project);
+               */
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An exception occured:\n" + ex.ToString());
+            }
+
+            finally
+            {
+                //Clears the text
+                ClearText();
+            }
+
         }
 
 

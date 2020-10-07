@@ -37,16 +37,28 @@ namespace BillingApp
         //If the alter button is clicked
         private void btnAlter_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < projects.Count; i++)
+
+            try
             {
-                if (projects[i].ProjectName == projectName)
+                for (int i = 0; i < projects.Count; i++)
                 {
-                    projects[i].ProjectBudget = double.Parse(txtBudgetDisplay.Text);
-                    projects[i].ProjectAmountSpent = double.Parse(txtSpentDisplay.Text);
-                    projects[i].ProjectHoursRemaining = int.Parse(txtTimeRemainingDisplay.Text);
-                    projects[i].ProjectStatus = cbStatusDisplay.Text;
-                    CollectionViewSource.GetDefaultView(projects).Refresh();
+                    if (projects[i].ProjectName == projectName)
+                    {
+                        projects[i].ProjectBudget = double.Parse(txtBudgetDisplay.Text);
+                        projects[i].ProjectAmountSpent = double.Parse(txtSpentDisplay.Text);
+                        projects[i].ProjectHoursRemaining = int.Parse(txtTimeRemainingDisplay.Text);
+                        projects[i].ProjectStatus = cbStatusDisplay.Text;
+                        CollectionViewSource.GetDefaultView(projects).Refresh();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Exception Occured:\n" + ex.ToString());
+            }
+            finally
+            {
+                this.Close();
             }
         }
 
