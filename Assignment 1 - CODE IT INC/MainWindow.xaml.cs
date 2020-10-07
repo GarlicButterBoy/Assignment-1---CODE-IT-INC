@@ -62,18 +62,32 @@ namespace BillingApp
         {
 
             //Gets the selected item from the listbox
-            Project project = (Project)lbProjectList.SelectedItem;
+            //  Project project = (Project)lbProjectList.SelectedItem;
+            string selectedName = lbProjectList.SelectedItem.ToString();
+
 
             //creates the new window
-            ProjectInfo newWindow = new ProjectInfo();
+            ProjectInfo newWindow = new ProjectInfo(projects, selectedName, sender);
             newWindow.Show();
 
+            for (int i = 0; i < projects.Count; i++)
+            {
+                if (projects[i].ProjectName == selectedName)
+                {
+                  newWindow.txtBudgetDisplay.Text = Convert.ToString(projects[i].ProjectBudget);
+                    newWindow.txtSpentDisplay.Text = Convert.ToString(projects[i].ProjectAmountSpent);
+                    newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(projects[i].ProjectHoursRemaining);
+                    newWindow.cbStatusDisplay.Text = projects[i].ProjectStatus;
+                   // CollectionViewSource.GetDefaultView(projects).Refresh();
+                }
+            }
+
             //displays the information stored in the listbox index selected
-            newWindow.txtProjectNameDisplay.Text = project.ProjectName;
-            newWindow.txtBudgetDisplay.Text = Convert.ToString(project.ProjectBudget);
-            newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(project.ProjectHoursRemaining);
-            newWindow.txtSpentDisplay.Text = Convert.ToString(project.ProjectAmountSpent);
-            newWindow.cbStatusDisplay.Text = project.ProjectStatus;
+            //  newWindow.txtProjectNameDisplay.Content = this.ProjectName;
+            // newWindow.txtBudgetDisplay.Text =
+            // newWindow.txtTimeRemainingDisplay.Text = Convert.ToString(project.ProjectHoursRemaining);
+            // newWindow.txtSpentDisplay.Text = Convert.ToString(project.ProjectAmountSpent);
+            //  newWindow.cbStatusDisplay.Text = project.ProjectStatus;
         }
 
         //Text Clear Function

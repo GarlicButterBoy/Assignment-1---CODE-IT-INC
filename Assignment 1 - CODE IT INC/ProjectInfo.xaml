@@ -12,44 +12,46 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+          <!--  <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition /> -->
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label Content="_Project Name:"  Target="{Binding ElementName=txtProjectNameDisplay}" />
-            <TextBox Name="txtProjectNameDisplay" Text=""/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="5, 5">
+            <Label Content="_Project Name:"  Target="{Binding ElementName=txtProjectNameDisplay}"/>
+            <Label Name="txtProjectNameDisplay" Content=""/>
             <Label Content="_Budget:"  Target="{Binding ElementName=txtBudgetDisplay}" />
             <TextBox Name="txtBudgetDisplay" Text=""/>
         </StackPanel>
-
-        <StackPanel Grid.Row="2">
-            <Label Content="_Spent:"  Target="{Binding ElementName=txtSpentDisplay}" />
-            <TextBox Name="txtSpentDisplay" Text=""/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5, 5">
+	        <Label Content="_Spent:"  Target="{Binding ElementName=txtSpentDisplay}" />
+	        <TextBox Name="txtSpentDisplay" Text=""/>
+	        <Label Content="_Est Hours Remaining:"  Target="{Binding ElementName=txtTimeRemainingDisplay}" />
+	        <TextBox Name="txtTimeRemainingDisplay" Text=""/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" >
-            <Label Content="_Est Hours Remaining:"  Target="{Binding ElementName=txtTimeRemainingDisplay}" />
-            <TextBox Name="txtTimeRemainingDisplay" Text=""/>
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+	        <Label Content="_Project Name:"  Target="{Binding ElementName=cbStatusDisplay}" />
+	        <ComboBox Name="cbStatusDisplay" Text="">
+		        <ComboBoxItem Name="cb1">Requirements</ComboBoxItem>
+		        <ComboBoxItem Name="cb2">Design</ComboBoxItem>
+		        <ComboBoxItem Name="cb3">Implementation</ComboBoxItem>
+		        <ComboBoxItem Name="cb4">Testing</ComboBoxItem>
+		        <ComboBoxItem Name="cb5">Deployment</ComboBoxItem>
+		        <ComboBoxItem Name="cb6">Completed</ComboBoxItem>
+	        </ComboBox>
         </StackPanel>
 
+        <StackPanel Grid.Row="3"  Orientation="Vertical">
+	        <Button Name="btnAlter" Content="Alter" Click="btnAlter_Click" />
+	        <Button Name="btnClose" Content="Close" Click="btnClose_Click"/>
+        </StackPanel>
+<!--
         <StackPanel Grid.Row="4">
-            <Label Content="_Project Name:"  Target="{Binding ElementName=cbStatusDisplay}" />
-            <ComboBox Name="cbStatusDisplay" Text="">
-                <ComboBoxItem Name="cb1">Requirements</ComboBoxItem>
-                <ComboBoxItem Name="cb2">Design</ComboBoxItem>
-                <ComboBoxItem Name="cb3">Implementation</ComboBoxItem>
-                <ComboBoxItem Name="cb4">Testing</ComboBoxItem>
-                <ComboBoxItem Name="cb5">Deployment</ComboBoxItem>
-                <ComboBoxItem Name="cb6">Completed</ComboBoxItem>
-            </ComboBox>
+
         </StackPanel>
 
         <WrapPanel Grid.Row="5">
-            <Button Name="btnAlter" Content="Alter" Click="btnAlter_Click" />
-            <Button Name="btnClose" Content="Close" Click="btnClose_Click"/>
-        </WrapPanel>
+
+        </WrapPanel> -->
     </Grid>
 </Window>
